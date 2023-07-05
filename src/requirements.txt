@@ -1,0 +1,40 @@
+#
+# Data packages
+#
+thefuzz
+scipy
+numpy
+toolz
+lenses
+
+#
+# Dev tool packages
+#
+icecream
+pytest
+pyclean
+tqdm
+
+#
+# Jupyter notebook
+#
+# jupyter
+notebook
+# https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+# jupyterthemes
+# jupyter_nbextensions_configurator
+ipywidgets
+
+#
+# Torch packages
+#
+torchtext
+torchvision
+torch-summary
+lightning
+torchmetrics
+
+#
+# Battery included
+#
+# dirtytorch@git+https://github.com/ndgnuh/dirtytorch.git
