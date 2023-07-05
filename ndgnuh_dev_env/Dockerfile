@@ -33,4 +33,5 @@ RUN chown dev:dev /home/dev/working
 # ENTRYPOINT
 WORKDIR /home/dev/working
 COPY ./entrypoint.sh /opt/entrypoint.sh
+ENV TERM=xterm-256color
 ENTRYPOINT /opt/entrypoint.sh

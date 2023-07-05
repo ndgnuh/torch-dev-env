@@ -4,8 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ndgnuh-dev-env"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = []
 
+[tool.setuptools]
+packages = ["ndgnuh_dev_env"]
+
 [project.scripts]
-enter-dev="src.enterdev:main"
+enter-dev="ndgnuh_dev_env.enterdev:main"

@@ -1,0 +1,2 @@
+[console_scripts]
+enter-dev = ndgnuh_dev_env.enterdev:main
