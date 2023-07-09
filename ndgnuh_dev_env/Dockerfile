@@ -1,7 +1,11 @@
-FROM pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime
+FROM python:3.11-slim-bookworm
+
+# Torch first
+RUN pip install -U pip
+RUN pip install torch torchvision torchaudio torchtext
 
 # Fix TZData Hang
-RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get update && apt-get -y install tzdata
+# RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get update && apt-get -y install tzdata
 
 # Intall debian packages
 RUN <<EOR
@@ -18,7 +22,6 @@ RUN <<EOR
 EOR
 
 # Install python packages
-RUN pip install -U pip
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -U -r /tmp/requirements.txt
 RUN rm /tmp/requirements.txt
@@ -29,6 +32,13 @@ RUN useradd -m dev -u 1001
 RUN echo 'ALL ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers
 RUN mkdir /home/dev/working -p
 RUN chown dev:dev /home/dev/working
+
+# EXTRA PATH AND COMMANDS
+COPY extra.bashrc /tmp
+RUN cat /tmp/extra.bashrc | tee -a /home/dev/.bashrc
+RUN rm /tmp/extra.bashrc
+RUN sed -i 's/#alias/alias/g' /home/dev/.bashrc
+RUN chown dev:dev /home/dev/.bashrc
 
 # ENTRYPOINT
 WORKDIR /home/dev/working

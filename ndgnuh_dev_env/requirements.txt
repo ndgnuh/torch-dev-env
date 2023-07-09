@@ -6,6 +6,8 @@ scipy
 numpy
 toolz
 lenses
+opencv-python-headless
+pyrsistent
 
 #
 # Dev tool packages
