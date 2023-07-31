@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ndgnuh-dev-env"
-version = "1.0.1"
-dependencies = []
+version = "1.0.2"
+dependencies = ["docker"]
 
 [tool.setuptools]
 packages = ["ndgnuh_dev_env"]
