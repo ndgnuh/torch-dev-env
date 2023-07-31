@@ -8,6 +8,7 @@ toolz
 lenses
 opencv-python-headless
 pyrsistent
+matplotlib
 
 #
 # Dev tool packages
@@ -34,7 +35,7 @@ torchtext
 torchvision
 torch-summary
 lightning
-torchmetrics
+pydantic
 
 #
 # Battery included

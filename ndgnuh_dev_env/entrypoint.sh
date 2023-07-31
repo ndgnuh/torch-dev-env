@@ -16,6 +16,22 @@ fi
 if [ -z $HOSTGID ]; then
 	HOSTGID=1000
 fi
-groupmod -g $HOSTGID dev
-usermod dev -u $HOSTUID
+
+# Create dev user
+groupadd -g $HOSTGID dev
+useradd -u $HOSTUID -g $HOSTGID dev
+for f in /etc/skel/.*; do
+	bn=$(basename $f)
+	if [ -f $f ]; then
+		cp $f /home/dev/$bn
+		chown dev:dev /home/dev/$bn
+	fi
+done
+
+# EXTRA PATH AND COMMANDS
+cat /opt/extra.bashrc | tee -a /home/dev/.bashrc > /dev/null
+sed -i 's/#alias/alias/g' /home/dev/.bashrc > /dev/null
+
+# ENTRYPOINT
+cd /home/dev/working
 exec sudo -u dev bash
