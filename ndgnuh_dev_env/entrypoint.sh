@@ -27,6 +27,7 @@ for f in /etc/skel/.*; do
 		chown dev:dev /home/dev/$bn
 	fi
 done
+chown dev:dev /home/dev/
 
 # EXTRA PATH AND COMMANDS
 cat /opt/extra.bashrc | tee -a /home/dev/.bashrc > /dev/null
