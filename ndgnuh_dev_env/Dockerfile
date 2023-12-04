@@ -2,7 +2,7 @@ FROM python:3.11-slim-bookworm
 
 # Torch first
 RUN pip install -U pip
-RUN pip install torch torchvision torchaudio torchtext
+RUN pip install torch==2.1.1 torchvision torchaudio torchtext
 
 # Fix TZData Hang
 # RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get update && apt-get -y install tzdata

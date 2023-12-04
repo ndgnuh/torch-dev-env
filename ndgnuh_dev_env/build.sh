@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build -t ndgnuh/torch-dev-env -f Dockerfile .
+docker build -t ndgnuh/torch-dev-env -f Dockerfile . $@
